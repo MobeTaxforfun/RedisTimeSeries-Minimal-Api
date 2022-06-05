@@ -1,0 +1,6 @@
+version: '3.4'
+
+services:
+  idttimeseri:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development

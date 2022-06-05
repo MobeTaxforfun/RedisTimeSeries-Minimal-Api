@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  idttimeseri:
+    image: mobetax81072/itdapi:1.1
+    container_name: paulwuapi
+    ports: 
+        - 7414:80
+    environment:
+     - redisserver=paulwuredistimeline:6379
+    depends_on:
+        - redistimeline
+    networks:
+        - redisbackend
+
+  redistimeline:
+    image: mobetax81072/redistimeline
+    container_name: paulwuredistimeline
+    ports:
+        - 6378:6379
+    networks:
+        - redisbackend
+networks:
+    redisbackend:
+        name: redisbackend
